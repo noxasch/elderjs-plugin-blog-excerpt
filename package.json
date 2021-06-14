@@ -1,0 +1,23 @@
+{
+  "name": "elder-plugin-blog-excerpt",
+  "version": "0.0.1",
+  "description": "Easily {do something special} for your Elder.js powered website.",
+  "keywords": [
+    "elder.js",
+    "elderjs",
+    "svelte",
+    "ssg",
+    "static",
+    "site",
+    "generator"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "dependencies": {
+    "rehype-parse": "^7.0.1",
+    "rehype-remark": "^8.0.0",
+    "remark-code-blocks": "^2.0.1",
+    "remark-stringify": "^9.0.1",
+    "unified": "^9.2.1"
+  }
+}
