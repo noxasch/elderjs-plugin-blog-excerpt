@@ -1,6 +1,6 @@
 {
   "name": "elderjs-plugin-blog-excerpt",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Alexander Dischberg",
   "private": false,
   "description": "Easily generate post excerpt from your markdown blog post for your Elder.js powered website.",
