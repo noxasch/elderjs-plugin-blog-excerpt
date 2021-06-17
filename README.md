@@ -18,8 +18,6 @@ npm i elderjs-plugin-blog-excerpt
 
 ## Config
 
-> Here is where you want to outline the config options of your plugin.
-
 Once installed, open your `elder.config.js` and configure the plugin by adding 'elder-plugin-your-plugin' to your plugin object.
 
 ```javascript
