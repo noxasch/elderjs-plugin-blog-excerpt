@@ -29,9 +29,10 @@ const plugin = {
               if (plugin.config.excludeListItem) cleanResult = removeListItem(cleanResult);
               cleanResult = cleanString(cleanResult);
               const excerpt = createExcerpt(cleanResult, plugin.config.maxWordsCount);
-              post.frontmatter.excerpt = excerpt.trim();
+              if (plugin.config.overrideExcerpt)
+                post.frontmatter.excerpt = excerpt.trim();
             });
-            console.log(`elderjs-plugin-blog-excerpt: ${posts.length} excerpts created for route[${route}]`);
+            console.log(`elderjs-plugin-blog-excerpt: Excerpts generated for route[${route}]`);
           });
           return { data }
         } else {
@@ -43,6 +44,7 @@ const plugin = {
   config: {
     routes: [],
     maxWordsCount: 55,
+    overrideExcerpt: false,
     excludeHeadings: true,
     excludeCodeBlock: true,
     excludeListItem: true,
