@@ -1,6 +1,6 @@
 {
   "name": "elderjs-plugin-blog-excerpt",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": "Alexander Dischberg",
   "private": false,
   "description": "Easily generate post excerpt from your markdown blog post for your Elder.js powered website.",
@@ -18,7 +18,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/noxasch/elderjs-plugin-blog-pagination"
+    "url": "https://github.com/noxasch/elderjs-plugin-blog-excerpt"
   },
   "files": [
     "index.js",
