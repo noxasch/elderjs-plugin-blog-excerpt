@@ -1,7 +1,9 @@
 {
-  "name": "elder-plugin-blog-excerpt",
-  "version": "0.0.1",
-  "description": "Easily {do something special} for your Elder.js powered website.",
+  "name": "elderjs-plugin-blog-excerpt",
+  "version": "0.1.0",
+  "author": "Alexander Dischberg",
+  "private": false,
+  "description": "Easily generate post excerpt from your markdown blog post for your Elder.js powered website.",
   "keywords": [
     "elder.js",
     "elderjs",
@@ -9,10 +11,19 @@
     "ssg",
     "static",
     "site",
-    "generator"
+    "generator",
+    "excerpt"
   ],
   "license": "MIT",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noxasch/elderjs-plugin-blog-pagination"
+  },
+  "files": [
+    "index.js",
+    "utils"
+  ],
   "dependencies": {
     "rehype-parse": "^7.0.1",
     "rehype-remark": "^8.0.0",

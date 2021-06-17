@@ -2,15 +2,12 @@
  * This function create excerpt from inputString
  * @param {string} inputString
  * @param {number} maxWordsCount
- * @param {string} stringEnd
  * @return {string} excerpt string
  */
-function createExcerpt(inputString, maxWordsCount, stringEnd) {
-  const excerptArray = inputString.split(/[ \.,]+/);
-  let lastWord = excerptArray.length > maxWordsCount ? excerptArray[maxWordsCount - 1] : excerptArray[excerptArray.length - 1];
-  lastWord = ` ${lastWord} `;
-  const excerpt = `${inputString.substr(0, inputString.indexOf(lastWord) + lastWord.length)}${stringEnd}`;
-
+function createExcerpt(inputString, maxWordsCount) {
+  const excerptArray = inputString.split(/[ ]+/);
+  const excerpt = (excerptArray.length > maxWordsCount) ? `${excerptArray.slice(0, maxWordsCount).join(' ')}...`
+    : `${excerptArray.slice(0, excerptArray.length - 1).join(' ')}`;
   return excerpt;
 }
 
