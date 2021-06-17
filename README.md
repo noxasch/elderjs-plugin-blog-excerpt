@@ -1,24 +1,19 @@
-# Elder.js Plugin Template
+# Elder.js Plugin: elderjs-plugin-blog-excerpt
 
-If you are looking to write an [Elder.js](https://elderguide.com/tech/elderjs/) plugin we've setup this template to help streamline that process.
+Generate excerpt from your markdown blog post. This plugin will add or override your excerpt generate by markdown plugin.
 
-Recommended naming is `elderjs-plugin-` + `your-plugin`.
+## Prerequisite
 
-Below you'll find recommended minimal documenation. 
+Currently this plugin only support post generate by @elderjs/plugin-markdown
 
-Once you've got your plugin written, please drop us a PR to add it to [Elderjs/plugins](https://github.com/Elderjs/plugins) repo. 
-
---------
-
-
-# Elder.js Plugin: Blog Excerpt
-
-Generate excerpt from you blog post
+```bash
+npm install --save @elderjs/plugin-markdown
+```
 
 ## Install
 
 ```bash
-npm i elder-plugin-blog-excerpt
+npm i elderjs-plugin-blog-excerpt
 ```
 
 ## Config
@@ -30,9 +25,9 @@ Once installed, open your `elder.config.js` and configure the plugin by adding '
 ```javascript
 plugins: {
 
-  'elderjs-plugin-your-plugin': {
-    routes: ['blog', 'articles'], // your route containing the blog post
-    maxWordsCount: 55, // max words count in excerpt
+  'elderjs-plugin-blog-excerpt': {
+    routes: ['blog'],
+    overrideExcerpt: true,
   },
 
 }
@@ -49,9 +44,27 @@ plugins: {
     excludeHeadings: true, // exclude headings from excerpt
     excludeCodeBlock: true, // exclude headings from excerpt
     excludeListItem: true, // exclude headings from excerpt
-    stringEnd: '...', // string or html up to you
   },
 }
+```
+
+## Example Usage in Index
+
+```html
+<script>
+  export let data, request, helpers, settings
+  const blogPost = data.markdown.blog
+</script>
+
+
+<div class="wrapper">
+  {#each blogPost as blog}
+    <PostList {blog} {helpers}/>
+    <div>
+      <div>{blog.frontmatter.excerpt}</div>
+    </div>
+  {/each}
+</div>
 ```
 
 ## Example Usage in Template
@@ -59,10 +72,23 @@ plugins: {
 ```html
 <script>
   export let data, request, helpers, settings
+  const { html, frontmatter } = data;
 </script>
 
+<svelte:head>
+  <title>{frontmatter.title}</title>
+  <meta name="description" content={frontmatter.excerpt} />
+</svelte:head>
 
 <div class="wrapper">
-  <div>
+  {#if html}
+    {@html html}
+  {:else}
+    <h1>Oops!! Markdown not found!</h1>
+  {/if}
 </div>
 ```
+
+## TODO
+- [ ] add unit test
+- [ ] add github action
